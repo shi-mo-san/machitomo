@@ -78,6 +78,93 @@
     信頼関係のある美容師だからこそ届けられる、ちょっといいお店との出会いを、街の人々に。
   </p>
 </section>
+<section class="shop-list">
+  <h2>紹介されたお店</h2>
+  <div class="shop-card-container">
+    
+    <div class="shop-card">
+      <img src="images/cafe_yururi.jpg" alt="CAFE ゆるり">
+      <h3>CAFE ゆるり</h3>
+      <p>町田｜カフェ・スイーツ</p>
+    </div>
+
+    <div class="shop-card">
+      <img src="images/goemon.jpg" alt="鉄板バル ごえもん">
+      <h3>鉄板バル ごえもん</h3>
+      <p>町田｜鉄板焼き・バル</p>
+    </div>
+
+    <div class="shop-card">
+      <img src="images/salon_rico.jpg" alt="Salon RICO">
+      <h3>Salon RICO</h3>
+      <p>町田｜プライベートサロン</p>
+    </div>
+
+  </div>
+  <div class="more-link">
+    <a href="/shops.html">▶ もっと見る</a>
+  </div>
+</section>
+.shop-list {
+  padding: 2em;
+  background-color: #f9f9f9;
+}
+
+.shop-list h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.shop-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.shop-card {
+  width: 260px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.shop-card:hover {
+  transform: scale(1.02);
+}
+
+.shop-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.shop-card h3 {
+  margin: 0.5em;
+  font-size: 1.2em;
+}
+
+.shop-card p {
+  margin: 0 0.5em 1em;
+  color: #777;
+  font-size: 0.95em;
+}
+
+.more-link {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.more-link a {
+  font-size: 1em;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
 
 <section id="for-salons">
   <h2>掲載を希望されるお店の方へ</h2>
@@ -110,3 +197,4 @@
 
 </body>
 </html>
+
