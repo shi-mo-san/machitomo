@@ -14,6 +14,21 @@
       line-height: 1.6;
     }
     header {
+  /* 端までビタッと */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  /* 背景画像で余白ごとトリミングして全幅表示 */
+  background-image: url('machitomoheder.png?v=5'); /* キャッシュ避けに?v=5 付き */
+  background-size: cover;      /* ぴったり埋める（はみ出しは自動トリミング）*/
+  background-position: center; /* 中央に配置 */
+  background-repeat: no-repeat;
+
+  /* 高さは画面に応じて可変（スマホでもバランス良く）*/
+  height: clamp(160px, 35vw, 360px);
+}
+
       header {
  header {
   background-color: #e7e1d8;
@@ -220,6 +235,7 @@
 
 </body>
 </html>
+
 
 
 
