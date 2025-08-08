@@ -10,20 +10,30 @@
       font-family: sans-serif;
     }
 
-    header {
-      /* 端までビタッと */
-      margin: 0;
-      padding: 0;
-      width: 100%;
+header {
+  /* 端までビタッと */
+  margin: 0;
+  padding: 0;
+  width: 100%;
 
-      /* 背景画像で余白ごとトリミングして全幅表示 */
-      background-image: url('machitomoheder.png?v=6'); /* キャッシュ避け */
-      background-size: cover;      /* 埋める（はみ出しは自動トリミング）*/
-      background-position: center; /* 中央に配置 */
-      background-repeat: no-repeat;
+  /* 背景画像で余白ごとトリミングして全幅表示 */
+  background-image: url('machitomoheder.png?v=6'); /* キャッシュ避け */
+  background-size: cover;      /* 埋める（はみ出しは自動トリミング）*/
+  background-position: center 45%; /* 中央より少し下寄せ */
+  background-repeat: no-repeat;
 
-      /* 高さはデバイスに応じて可変 */
-      height: clamp(160px, 35vw, 360px);
+  /* 高さは画面に応じて可変（スマホでもバランス良く）*/
+  height: clamp(200px, 35vw, 360px);
+}
+
+/* PC幅では高さをさらに確保 */
+@media (min-width: 1024px) {
+  header {
+    height: 420px;               /* お好みで調整可 */
+    background-position: center 50%; /* さらに下寄せ */
+  }
+}
+
     }
 
     nav {
@@ -101,6 +111,7 @@
     📩 machitomo@example.com
   </p>
 </section>
+
 
 
 
