@@ -2,66 +2,83 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>まちとも｜街と共に　街と友に</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>まちトモ</title>
   <style>
     body {
-      font-family: "Helvetica Neue", sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9f7f4;
-      color: #333;
-      line-height: 1.6;
+      font-family: sans-serif;
     }
 
     header {
+      /* 端までビタッと */
       margin: 0;
       padding: 0;
       width: 100%;
-      background-image: url('machitomoheder.png?v=5');
-      background-size: cover;
-      background-position: center;
+
+      /* 背景画像で余白ごとトリミングして全幅表示 */
+      background-image: url('machitomoheder.png?v=6'); /* キャッシュ避け */
+      background-size: cover;      /* 埋める（はみ出しは自動トリミング）*/
+      background-position: center; /* 中央に配置 */
       background-repeat: no-repeat;
+
+      /* 高さはデバイスに応じて可変 */
       height: clamp(160px, 35vw, 360px);
     }
 
     nav {
-      background-color: #d6cfc3;
-      padding: 10px 20px;
+      background-color: #e7e1d8;
       text-align: center;
+      padding: 10px 0;
     }
 
     nav a {
-      color: #333;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      color: #000;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
+    footer {
+      background-color: #e7e1d8;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
     section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
+      padding: 20px;
     }
+  </style>
+</head>
+<body>
 
-    section h2 {
-      color: #8c715b;
-      margin-bottom: 10px;
-    }
+  <header></header>
 
-    section p {
-      margin-bottom: 20px;
-    }
+  <nav>
+    <a href="#for-salons">掲載希望の店舗様へ</a>
+    <a href="#for-stylists">パートナー美容師の方へ</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
 
-    .shop-list {
-      padding: 2em;
-      background-color: #f9f9f9;
-    }
+  <section id="concept">
+    <h2>まちとものコンセプト</h2>
+    <p>
+      「まちとも」は、美容師がお客様に“本当におすすめしたい”地域のお店を紹介する、新しい街のつながりプラットフォームです。
+      信頼関係のある美容師だからこそ届けられる、ちょっといいお店との出会いを、街の人々に。
+    </p>
+  </section>
 
-    .shop-list h2 {
-      font-size: 1.8em;
-      margin-bottom: 1em;
+  <footer>
+    &copy; 2025 まちトモ
+  </footer>
+
+</body>
+</html>
+
+
