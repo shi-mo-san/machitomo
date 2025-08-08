@@ -36,22 +36,33 @@ header {
 
     }
 
-    nav {
-      background-color: #e7e1d8;
-      text-align: center;
-      padding: 10px 0;
-    }
+   nav{
+  background:#e7e1d8;
+  width:100%;
+  margin:0;                /* 余白リセット */
+  padding:12px 16px;       /* バナーの高さ */
+  display:flex;            /* 横並び */
+  justify-content:center;  /* 中央揃え */
+  align-items:center;
+  gap:32px;                /* リンクの間隔 */
+  border-top:6px solid #4f4342; /* ヘッダーとの境界線（色は好みで） */
+  box-shadow: 0 1px 0 rgba(0,0,0,.05) inset; /* ほんのり陰影 */
+}
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #000;
-    }
+nav a{
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  white-space:nowrap;      /* 折り返さない */
+  padding:4px 6px;         /* クリックしやすく */
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+nav a:hover{ text-decoration:underline; }
+
+/* 画面が狭い時だけ少し詰める */
+@media (max-width: 480px){
+  nav{ gap:16px; font-size:14px; }
+}
 
     footer {
       background-color: #e7e1d8;
@@ -111,6 +122,7 @@ header {
     📩 machitomo@example.com
   </p>
 </section>
+
 
 
 
