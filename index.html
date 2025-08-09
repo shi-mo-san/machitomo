@@ -10,33 +10,37 @@
       --bg:#faf8f5;
       --fg:#222;
       --muted:#666;
-      --brand:#b7a58b; /* グレージュ寄り */
+      --brand:#b7a58b;
       --card:#fff;
       --max:1100px;
       --radius:14px;
-      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --shadow:0 6px 18px rgba(0,0,0,.06);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.6}
     a{color:var(--fg);text-decoration:none}
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .logo{display:flex;gap:10px;align-items:center;font-weight:700}
     .logo-badge{width:28px;height:28px;border-radius:8px;background:var(--brand)}
-    .nav a.btn{padding:10px 14px;border:1px solid #ddd;border-radius:10px;background:#fff}
+    .nav a.btn{padding:8px 12px;border:1px solid #ddd;border-radius:10px;background:#fff;font-size:14px}
     main{padding:20px 0 60px}
-    .hero{margin:24px auto 6px;display:grid;gap:14px;padding:18px;border-radius:var(--radius);background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));box-shadow:var(--shadow)}
-    .hero h1{font-size:clamp(22px,3.2vw,32px);margin:0}
-    .hero p{margin:0;color:var(--muted)}
-    section{margin:28px 0}
-    h2{font-size:clamp(18px,2.6vw,24px);margin:0 0 12px}
+    .hero{margin:20px auto;display:grid;gap:14px;padding:14px;border-radius:var(--radius);background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));box-shadow:var(--shadow)}
+    .hero h1{font-size:clamp(18px,2.5vw,22px);margin:0}
+    .hero p{margin:4px 0 0;color:var(--muted);font-size:14px}
+    .thumb{aspect-ratio:4/3;border-radius:10px;background:#f3f1ed;display:flex;align-items:center;justify-content:center;font-size:12px;color:#9a8f7d}
+    section{margin:24px 0}
+    h2{font-size:clamp(17px,2.2vw,20px);margin:0 0 10px}
     .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .embed-wrap{padding:10px}
+    .embed{position:relative;width:100%;height:0;padding-top:32%;}
+    .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:10px}
     footer{border-top:1px solid #eee;background:#fff}
-    .foot{padding:28px 0;color:var(--muted);font-size:14px}
-    /* レスポンシブ余白 */
+    .foot{padding:20px 0;color:var(--muted);font-size:13px}
     @media (min-width:720px){
-      .hero{grid-template-columns:1.2fr 2fr;align-items:center}
+      .hero{grid-template-columns:1.2fr 1fr;align-items:center}
+      .embed{padding-top:28%;}
     }
   </style>
 </head>
@@ -56,76 +60,63 @@
   </header>
 
   <main class="wrap">
-    <!-- ヒーロー（軽い導入） -->
     <section class="hero card" aria-labelledby="hero-title">
       <div>
-        <h1 id="hero-title">街と友に。<br>美容師がおすすめする“行ってよかった”をあなたへ。</h1>
-        <p>信頼できる人からの紹介だから、初めてでも安心。まちトモは、美容師とお客様と街のお店をつなぐサービスです。</p>
+        <h1 id="hero-title">街と友に。美容師がおすすめする“行ってよかった”をあなたへ。</h1>
+        <p>信頼できる人からの紹介だから初めてでも安心。まちトモは、美容師とお客様と街のお店をつなぐサービスです。</p>
       </div>
-      <!-- 必要ならヒーロー画像に差し替え可 -->
-      <div class="thumb" style="aspect-ratio:16/9;border-radius:12px;background:#f3f1ed;display:flex;align-items:center;justify-content:center;">
-        <span style="color:#9a8f7d;">Your Image Here</span>
-      </div>
+      <div class="thumb">Your Image Here</div>
     </section>
 
-    <!-- Canva：サービス紹介スライド -->
     <section id="service-intro" aria-labelledby="service-title">
       <h2 id="service-title">まちトモとは？（サービス紹介）</h2>
-      <div class="card" style="position: relative; width: 100%; height: 0; padding-top: 56.25%;
-        margin-top: 0.6em; margin-bottom: 0.6em; overflow: hidden; border-radius: 12px;">
-        <iframe
-          loading="lazy"
-          title="まちトモ サービス紹介スライド"
-          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
-          src="https://www.canva.com/design/DAGvhPcTNOg/hUUXRuSH6ttQXV_WeFB9Wg/watch?embed"
-          allowfullscreen
-          allow="fullscreen">
-        </iframe>
+      <div class="card embed-wrap">
+        <div class="embed">
+          <iframe
+            loading="lazy"
+            title="まちトモ サービス紹介スライド"
+            src="https://www.canva.com/design/DAGvhPcTNOg/hUUXRuSH6ttQXV_WeFB9Wg/watch?embed"
+            allowfullscreen
+            allow="fullscreen">
+          </iframe>
+        </div>
       </div>
-      <noscript>
-        <p><a href="https://www.canva.com/design/DAGvhPcTNOg/hUUXRuSH6ttQXV_WeFB9Wg/watch" rel="noopener" target="_blank">スライドを見る（外部リンク）</a></p>
-      </noscript>
     </section>
 
-    <!-- 仕組み（3ステップ） -->
     <section id="how-it-works" aria-labelledby="how-title">
       <h2 id="how-title">仕組み</h2>
-      <div class="card" style="padding:16px;">
-        <ol style="margin:0; padding-left:1.2em;">
-          <li>美容師がカウンセリングや会話の中で、お客様の好みをヒアリング</li>
-          <li>まちトモのパートナー店から、ぴったりのお店をおすすめ</li>
-          <li>お客様が来店 → “行ってよかった”の体験を共有</li>
+      <div class="card" style="padding:14px;">
+        <ol style="margin:0; padding-left:1.2em;font-size:14px;color:var(--muted);">
+          <li>美容師が会話の中で、お客様の好みをヒアリング</li>
+          <li>パートナー店から、ぴったりのお店をおすすめ</li>
+          <li>来店後、“行ってよかった”の体験を共有</li>
         </ol>
       </div>
     </section>
 
-    <!-- 参加方法（アンカー導線） -->
     <section id="how-to" aria-labelledby="join-title">
       <h2 id="join-title">参加方法</h2>
-      <div class="card" style="display:grid; gap:12px; padding:16px;">
+      <div class="card" style="display:grid; gap:10px; padding:14px;">
         <div>
-          <h3 style="margin:0 0 6px; font-size:18px;">美容師の方</h3>
-          <p style="margin:0 0 8px; color:var(--muted);">“おすすめできるお店”を一緒に増やしましょう。</p>
-          <a href="#contact" class="btn" style="display:inline-block; padding:10px 14px; border:1px solid #ddd; border-radius:10px; background:#fff;">パートナー登録について問い合わせる</a>
+          <h3 style="margin:0 0 6px; font-size:15px;">美容師の方</h3>
+          <p style="margin:0 0 6px; color:var(--muted);font-size:14px;">“おすすめできるお店”を一緒に増やしましょう。</p>
+          <a href="#contact" class="btn" style="padding:8px 12px;font-size:13px;">パートナー登録について問い合わせる</a>
         </div>
         <div>
-          <h3 style="margin:12px 0 6px; font-size:18px;">お店の方</h3>
-          <p style="margin:0 0 8px; color:var(--muted);">“信頼経由の来店”につながる仕組みをご提案します。</p>
-          <a href="#contact" class="btn" style="display:inline-block; padding:10px 14px; border:1px solid #ddd; border-radius:10px; background:#fff;">掲載・提携のご相談をする</a>
+          <h3 style="margin:12px 0 6px; font-size:15px;">お店の方</h3>
+          <p style="margin:0 0 6px; color:var(--muted);font-size:14px;">信頼経由の来店につながる仕組みをご提案します。</p>
+          <a href="#contact" class="btn" style="padding:8px 12px;font-size:13px;">掲載・提携のご相談をする</a>
         </div>
       </div>
     </section>
 
-    <!-- お問い合わせ -->
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">お問い合わせ</h2>
-      <div class="card" style="padding:16px;">
-        <!-- 必要に応じてフォームや外部リンクへ差し替え -->
-        <p style="margin:0 0 8px;">ご相談・ご質問は、以下のリンクからお気軽にどうぞ。</p>
-        <ul style="margin:0; padding-left:1.2em;">
+      <div class="card" style="padding:14px;">
+        <ul style="margin:0; padding-left:1.2em;font-size:14px;">
           <li><a href="mailto:info@example.com">info@example.com</a>（メール）</li>
           <li><a href="#" target="_blank" rel="noopener">お問い合わせフォーム</a></li>
-          <li><a href="#" target="_blank" rel="noopener">X（旧Twitter）</a> ／ <a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">X</a> ／ <a href="#" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
     </section>
@@ -138,7 +129,6 @@
   </footer>
 
   <script>
-    // コピーライト年の自動更新
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
