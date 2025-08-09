@@ -1,129 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>まちトモ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>まちトモ｜街と友に</title>
+  <meta name="description" content="美容師が“本当におすすめしたい”街のお店を紹介する、まちトモのサービス紹介ページ。">
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
+    :root{
+      --bg:#faf8f5;
+      --fg:#222;
+      --muted:#666;
+      --brand:#b7a58b; /* グレージュ寄り */
+      --card:#fff;
+      --max:1100px;
+      --radius:14px;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
     }
-
-header {
-  /* 端までビタッと */
-  margin: 0;
-  padding: 0;
-  width: 100%;
-
-  /* 背景画像で余白ごとトリミングして全幅表示 */
-  background-image: url('machitomoheder.png?v=6'); /* キャッシュ避け */
-  background-size: cover;      /* 埋める（はみ出しは自動トリミング）*/
-  background-position: center 45%; /* 中央より少し下寄せ */
-  background-repeat: no-repeat;
-
-  /* 高さは画面に応じて可変（スマホでもバランス良く）*/
-  height: clamp(200px, 35vw, 360px);
-}
-
-/* PC幅では高さをさらに確保 */
-@media (min-width: 1024px) {
-  header {
-    height: 420px;               /* お好みで調整可 */
-    background-position: center 50%; /* さらに下寄せ */
-  }
-}
-
-    }
-
-   nav{
-  background:#e7e1d8;
-  width:100%;
-  margin:0;                /* 余白リセット */
-  padding:12px 16px;       /* バナーの高さ */
-  display:flex;            /* 横並び */
-  justify-content:center;  /* 中央揃え */
-  align-items:center;
-  gap:32px;                /* リンクの間隔 */
-  border-top:6px solid #4f4342; /* ヘッダーとの境界線（色は好みで） */
-  box-shadow: 0 1px 0 rgba(0,0,0,.05) inset; /* ほんのり陰影 */
-}
-
-nav a{
-  color:#000;
-  text-decoration:none;
-  font-weight:bold;
-  white-space:nowrap;      /* 折り返さない */
-  padding:4px 6px;         /* クリックしやすく */
-}
-
-nav a:hover{ text-decoration:underline; }
-
-/* 画面が狭い時だけ少し詰める */
-@media (max-width: 480px){
-  nav{ gap:16px; font-size:14px; }
-}
-
-    footer {
-      background-color: #e7e1d8;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    section {
-      padding: 20px;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.6}
+    a{color:var(--fg);text-decoration:none}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:700}
+    .logo-badge{width:28px;height:28px;border-radius:8px;background:var(--brand)}
+    .nav a.btn{padding:10px 14px;border:1px solid #ddd;border-radius:10px;background:#fff}
+    main{padding:20px 0 60px}
+    .hero{margin:24px auto 6px;display:grid;gap:14px;padding:18px;border-radius:var(--radius);background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));box-shadow:var(--shadow)}
+    .hero h1{font-size:clamp(22px,3.2vw,32px);margin:0}
+    .hero p{margin:0;color:var(--muted)}
+    section{margin:28px 0}
+    h2{font-size:clamp(18px,2.6vw,24px);margin:0 0 12px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+    footer{border-top:1px solid #eee;background:#fff}
+    .foot{padding:28px 0;color:var(--muted);font-size:14px}
+    /* レスポンシブ余白 */
+    @media (min-width:720px){
+      .hero{grid-template-columns:1.2fr 2fr;align-items:center}
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo">
+        <span class="logo-badge" aria-hidden="true"></span>
+        <span>まちトモ</span>
+      </div>
+      <nav class="nav-links" aria-label="主要メニュー">
+        <a href="#service-intro" class="btn">サービス紹介</a>
+        <a href="#how-to" class="btn">参加方法</a>
+        <a href="#contact" class="btn">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
 
-  <header></header>
+  <main class="wrap">
+    <!-- ヒーロー（軽い導入） -->
+    <section class="hero card" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">街と友に。<br>美容師がおすすめする“行ってよかった”をあなたへ。</h1>
+        <p>信頼できる人からの紹介だから、初めてでも安心。まちトモは、美容師とお客様と街のお店をつなぐサービスです。</p>
+      </div>
+      <!-- 必要ならヒーロー画像に差し替え可 -->
+      <div class="thumb" style="aspect-ratio:16/9;border-radius:12px;background:#f3f1ed;display:flex;align-items:center;justify-content:center;">
+        <span style="color:#9a8f7d;">Your Image Here</span>
+      </div>
+    </section>
 
-  <nav>
-    <a href="#for-salons">掲載希望の店舗様へ</a>
-    <a href="#for-stylists">パートナー美容師の方へ</a>
-    <a href="#contact">お問い合わせ</a>
-  </nav>
+    <!-- Canva：サービス紹介スライド -->
+    <section id="service-intro" aria-labelledby="service-title">
+      <h2 id="service-title">まちトモとは？（サービス紹介）</h2>
+      <div class="card" style="position: relative; width: 100%; height: 0; padding-top: 56.25%;
+        margin-top: 0.6em; margin-bottom: 0.6em; overflow: hidden; border-radius: 12px;">
+        <iframe
+          loading="lazy"
+          title="まちトモ サービス紹介スライド"
+          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+          src="https://www.canva.com/design/DAGvhPcTNOg/hUUXRuSH6ttQXV_WeFB9Wg/watch?embed"
+          allowfullscreen
+          allow="fullscreen">
+        </iframe>
+      </div>
+      <noscript>
+        <p><a href="https://www.canva.com/design/DAGvhPcTNOg/hUUXRuSH6ttQXV_WeFB9Wg/watch" rel="noopener" target="_blank">スライドを見る（外部リンク）</a></p>
+      </noscript>
+    </section>
 
+    <!-- 仕組み（3ステップ） -->
+    <section id="how-it-works" aria-labelledby="how-title">
+      <h2 id="how-title">仕組み</h2>
+      <div class="card" style="padding:16px;">
+        <ol style="margin:0; padding-left:1.2em;">
+          <li>美容師がカウンセリングや会話の中で、お客様の好みをヒアリング</li>
+          <li>まちトモのパートナー店から、ぴったりのお店をおすすめ</li>
+          <li>お客様が来店 → “行ってよかった”の体験を共有</li>
+        </ol>
+      </div>
+    </section>
 
+    <!-- 参加方法（アンカー導線） -->
+    <section id="how-to" aria-labelledby="join-title">
+      <h2 id="join-title">参加方法</h2>
+      <div class="card" style="display:grid; gap:12px; padding:16px;">
+        <div>
+          <h3 style="margin:0 0 6px; font-size:18px;">美容師の方</h3>
+          <p style="margin:0 0 8px; color:var(--muted);">“おすすめできるお店”を一緒に増やしましょう。</p>
+          <a href="#contact" class="btn" style="display:inline-block; padding:10px 14px; border:1px solid #ddd; border-radius:10px; background:#fff;">パートナー登録について問い合わせる</a>
+        </div>
+        <div>
+          <h3 style="margin:12px 0 6px; font-size:18px;">お店の方</h3>
+          <p style="margin:0 0 8px; color:var(--muted);">“信頼経由の来店”につながる仕組みをご提案します。</p>
+          <a href="#contact" class="btn" style="display:inline-block; padding:10px 14px; border:1px solid #ddd; border-radius:10px; background:#fff;">掲載・提携のご相談をする</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">お問い合わせ</h2>
+      <div class="card" style="padding:16px;">
+        <!-- 必要に応じてフォームや外部リンクへ差し替え -->
+        <p style="margin:0 0 8px;">ご相談・ご質問は、以下のリンクからお気軽にどうぞ。</p>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li><a href="mailto:info@example.com">info@example.com</a>（メール）</li>
+          <li><a href="#" target="_blank" rel="noopener">お問い合わせフォーム</a></li>
+          <li><a href="#" target="_blank" rel="noopener">X（旧Twitter）</a> ／ <a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="y"></span> まちトモ</div>
+    </div>
+  </footer>
+
+  <script>
+    // コピーライト年の自動更新
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
-<section id="concept">
-  <h2>まちとものコンセプト</h2>
-  <p>
-    「まちとも」は、美容師がお客様に“本当におすすめしたい”地域のお店を紹介する、新しい街のつながりプラットフォームです。<br>
-    信頼関係のある美容師だからこそ届けられる、ちょっといいお店との出会いを、街の人々に。
-  </p>
-</section>
-
-<section id="for-salons">
-  <h2>掲載希望の店舗様へ</h2>
-  <p>
-    「まちとも」では、美容師が信頼する地域のお店を紹介しています。<br>
-    掲載をご希望の店舗様は、下記のお問い合わせフォームからご連絡ください。
-  </p>
-</section>
-
-<section id="for-stylists">
-  <h2>パートナー美容師の方へ</h2>
-  <p>
-    お客様に「本当に良いお店」を届けたい美容師さんを募集しています。<br>
-    登録や紹介方法についての詳細は、随時ご案内していますのでお気軽にお問い合わせください。
-  </p>
-</section>
-
-<section id="contact">
-  <h2>お問い合わせ</h2>
-  <p>
-    ご質問・ご相談などございましたら、以下のメールアドレスまでご連絡ください。<br>
-    📩 machitomo@example.com
-  </p>
-</section>
-
-
-
-
-
