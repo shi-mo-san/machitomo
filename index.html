@@ -5,101 +5,73 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>まちトモ｜街と友に</title>
   <meta name="description" content="美容師が“本当におすすめしたい”街のお店を紹介する、まちトモのサービス紹介ページ。">
-  
-  <!-- Google Fonts（柔らかい印象） -->
+
+  <!-- 北欧ナチュラル：やわらかい丸ゴ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* 北欧ナチュラル配色 */
-      --bg:#f7f7f2;
-      --fg:#2b2b2b;
-      --muted:#6b6b6b;
-      --brand:#a3b18a; /* 淡いオリーブグリーン */
-      --accent:#d4a373; /* ベージュ系アクセント */
-      --card:#ffffff;
-      --max:1100px;
-      --radius:14px;
-      --shadow:0 4px 14px rgba(0,0,0,.05);
+      --bg:#f7f7f2; --fg:#2b2b2b; --muted:#6b6b6b;
+      --brand:#a3b18a; --accent:#d4a373;
+      --card:#fff; --max:1100px; --radius:14px; --shadow:0 4px 14px rgba(0,0,0,.05);
     }
     *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;background:var(--bg);color:var(--fg);
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
       font-family:"M PLUS Rounded 1c",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-      line-height:1.7;letter-spacing:.02em;
+      line-height:1.7; letter-spacing:.02em;
     }
     a{color:var(--fg);text-decoration:none}
-    header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,.9);
-      backdrop-filter:saturate(180%) blur(10px);
-      border-bottom:1px solid #e6e6e6;
-    }
+
+    /* ヘッダー：ロゴを横幅いっぱいに表示（ナビは下段） */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e6e6e6}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .nav a.btn{
-      padding:8px 14px;border:1px solid #ddd;border-radius:10px;
-      background:#fff;font-size:14px;transition:background .2s;
-    }
-    .nav a.btn:hover{background:var(--accent);color:#fff}
+    .nav{display:flex;flex-direction:column;gap:10px;justify-content:center;padding:8px 0}
+    .logo-wide{width:100%;display:block}
+    .logo-wide img{width:100%;height:auto;display:block} /* 横幅いっぱい */
+    .nav-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links .btn{padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;font-size:14px;transition:background .2s}
+    .nav-links .btn:hover{background:var(--accent);color:#fff}
 
     main{padding:24px 0 60px}
     section{margin:28px 0}
     h2{font-size:clamp(18px,2.2vw,22px);margin:0 0 12px;color:var(--brand)}
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px;
-    }
 
-    /* ヒーロー */
-    .hero{
-      margin:20px auto;display:grid;gap:14px;padding:18px;
-      background:linear-gradient(180deg,#fff,rgba(255,255,255,.95));
-      border-radius:var(--radius);box-shadow:var(--shadow);
-    }
+    /* カード */
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+
+    /* ヒーロー：右側に動画が来る */
+    .hero{margin:20px auto;display:grid;gap:14px;padding:18px;background:linear-gradient(180deg,#fff,rgba(255,255,255,.95));border-radius:var(--radius);box-shadow:var(--shadow)}
     .hero h1{font-size:clamp(19px,2.5vw,24px);margin:0;color:var(--brand)}
     .hero p{margin:6px 0 0;color:var(--muted);font-size:15px}
-    .thumb{
-      aspect-ratio:4/3;border-radius:10px;background:#e9ece5;
-      display:flex;align-items:center;justify-content:center;
-      font-size:12px;color:#9aa0a6;
-    }
+    .thumb{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#e9ece5;display:block}
+    /* 動画を枠いっぱいに（トリミングは中央） */
+    .thumb video{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Canva 埋め込み */
+    /* Canva 埋め込み（左右の暗帯が出にくい view 形式） */
     .embed-wrap{padding:8px}
-    .embed{position:relative;width:100%;height:0;padding-top:42%;}
-    .embed iframe{
-      position:absolute;inset:0;width:100%;height:100%;
-      border:0;border-radius:12px;background:#fff;
-    }
+    .embed{position:relative;width:100%;height:0;padding-top:40%}
+    .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px;background:#fff}
 
-    /* リスト・リンク */
     ol,ul{margin:0;padding-left:1.2em}
     li{margin-bottom:6px;font-size:15px;color:var(--muted)}
 
-    footer{
-      border-top:1px solid #e6e6e6;background:#fff;
-    }
-    .foot{
-      padding:20px 0;color:var(--muted);font-size:13px;text-align:center;
-    }
+    footer{border-top:1px solid #e6e6e6;background:#fff}
+    .foot{padding:20px 0;color:var(--muted);font-size:13px;text-align:center}
 
     @media (min-width:720px){
       .hero{grid-template-columns:1.2fr 1fr;align-items:center}
-      .embed{padding-top:38%;}
+      .embed{padding-top:38%}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <!-- ロゴ画像を利用 -->
-      <a href="/" class="logo" style="display:flex;align-items:center;gap:10px;">
-        <img src="machitomoheder.png" alt="まちトモ" style="height:36px; width:auto; display:block;">
+      <!-- 横幅いっぱいロゴ：machitomoheder.png を置いてください -->
+      <a href="/" class="logo-wide" aria-label="まちトモ">
+        <img src="machitomoheder.png" alt="まちトモ">
       </a>
       <nav class="nav-links" aria-label="主要メニュー">
         <a href="#service-intro" class="btn">サービス紹介</a>
@@ -110,16 +82,29 @@
   </header>
 
   <main class="wrap">
-    <!-- ヒーロー -->
+    <!-- ヒーロー：右側に自動再生動画 -->
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <h1 id="hero-title">街と友に。美容師がおすすめする“行ってよかった”をあなたへ。</h1>
         <p>信頼できる人からの紹介だから初めてでも安心。まちトモは、美容師とお客様と街のお店をつなぐサービスです。</p>
       </div>
-      <div class="thumb">イメージ画像</div>
+
+      <!-- ▼ここに動画（hero.mp4）を入れます -->
+      <div class="thumb">
+        <video
+          src="hero.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="hero-poster.jpg">
+          <!-- Fallback -->
+          お使いの環境では動画を再生できません
+        </video>
+      </div>
     </section>
 
-    <!-- Canva：サービス紹介 -->
+    <!-- Canva：サービス紹介（必要に応じて残す） -->
     <section id="service-intro" aria-labelledby="service-title">
       <h2 id="service-title">まちトモとは？（サービス紹介）</h2>
       <div class="embed-wrap card">
@@ -183,8 +168,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
