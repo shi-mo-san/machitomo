@@ -6,7 +6,7 @@
   <title>まちトモ｜街と友に</title>
   <meta name="description" content="美容師が“本当におすすめしたい”街のお店を紹介する、まちトモのサービス紹介ページ。">
 
-  <!-- 北欧ナチュラル：やわらかい丸ゴ -->
+  <!-- 北欧ナチュラルフォント -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,8 +24,8 @@
     }
     a{color:var(--fg);text-decoration:none}
 
-    /* ヘッダー */
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e6e6e6}
+    /* ヘッダー（固定解除） */
+    header{background:#fff;border-bottom:1px solid #e6e6e6}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
     .nav{display:flex;flex-direction:column;gap:10px;justify-content:center;padding:8px 0}
     .logo-wide{width:100%;display:block}
@@ -34,5 +34,114 @@
     .nav-links .btn{padding:8px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;font-size:14px;transition:background .2s}
     .nav-links .btn:hover{background:var(--accent);color:#fff}
 
-    main{padding
+    main{padding:24px 0 60px}
+    section{margin:28px 0}
+    h2{font-size:clamp(18px,2.2vw,22px);margin:0 0 12px;color:var(--brand)}
 
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+
+    /* ヒーロー */
+    .hero{margin:20px auto;display:grid;gap:14px;padding:18px;background:linear-gradient(180deg,#fff,rgba(255,255,255,.95));border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero h1{font-size:clamp(19px,2.5vw,24px);margin:0;color:var(--brand)}
+    .hero p{margin:6px 0 0;color:var(--muted);font-size:15px}
+    .thumb{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#e9ece5;display:block}
+
+    /* Canva埋め込み調整 */
+    .thumb iframe{
+      width:100%;height:100%;border:0;display:block;
+    }
+
+    ol,ul{margin:0;padding-left:1.2em}
+    li{margin-bottom:6px;font-size:15px;color:var(--muted)}
+
+    footer{border-top:1px solid #e6e6e6;background:#fff}
+    .foot{padding:20px 0;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (min-width:720px){
+      .hero{grid-template-columns:1.2fr 1fr;align-items:center}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="/" class="logo-wide" aria-label="まちトモ">
+        <img src="machitomoheder.png" alt="まちトモ">
+      </a>
+      <nav class="nav-links" aria-label="主要メニュー">
+        <a href="#service-intro" class="btn">サービス紹介</a>
+        <a href="#how-to" class="btn">参加方法</a>
+        <a href="#contact" class="btn">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ヒーロー -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">街と友に。美容師がおすすめする“行ってよかった”をあなたへ。</h1>
+        <p>信頼できる人からの紹介だから初めてでも安心。まちトモは、美容師とお客様と街のお店をつなぐサービスです。</p>
+      </div>
+      <div class="thumb">
+        <iframe
+          src="https://www.canva.com/design/DAGvhPcTNOg/hUUXRuSH6ttQXV_WeFB9Wg/watch?embed"
+          allowfullscreen
+          allow="autoplay; fullscreen">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- 仕組み -->
+    <section id="how-it-works" aria-labelledby="how-title">
+      <h2 id="how-title">仕組み</h2>
+      <div class="card">
+        <ol>
+          <li>美容師が会話の中で、お客様の好みをヒアリング</li>
+          <li>パートナー店から、ぴったりのお店をおすすめ</li>
+          <li>来店後、“行ってよかった”の体験を共有</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 参加方法 -->
+    <section id="how-to" aria-labelledby="join-title">
+      <h2 id="join-title">参加方法</h2>
+      <div class="card" style="display:grid; gap:14px;">
+        <div>
+          <h3 style="margin:0 0 6px; font-size:16px;color:var(--accent);">美容師の方</h3>
+          <p style="margin:0 0 6px; color:var(--muted);">“おすすめできるお店”を一緒に増やしましょう。</p>
+          <a href="#contact" class="btn" style="display:inline-block;background:var(--brand);color:#fff;border:none;">パートナー登録について問い合わせる</a>
+        </div>
+        <div>
+          <h3 style="margin:12px 0 6px; font-size:16px;color:var(--accent);">お店の方</h3>
+          <p style="margin:0 0 6px; color:var(--muted);">信頼経由の来店につながる仕組みをご提案します。</p>
+          <a href="#contact" class="btn" style="display:inline-block;background:var(--brand);color:#fff;border:none;">掲載・提携のご相談をする</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">お問い合わせ</h2>
+      <div class="card">
+        <ul>
+          <li><a href="mailto:info@example.com">info@example.com</a>（メール）</li>
+          <li><a href="#" target="_blank" rel="noopener">お問い合わせフォーム</a></li>
+          <li><a href="#" target="_blank" rel="noopener">X</a> ／ <a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="y"></span> まちトモ</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
